@@ -91,7 +91,7 @@ export const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="text-slate-500 text-[10px] uppercase tracking-[0.2em]">
-                        © 2024 NeonMusic Platform. {t.footer.rights}
+                        © 2024 NeonStudio Platform. {t.footer.rights}
                     </div>
                     <div className="flex gap-6">
                         <div className="flex items-center gap-2 text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">
