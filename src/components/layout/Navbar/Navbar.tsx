@@ -42,8 +42,10 @@ export const Navbar = () => {
                         </button>
                     </div>
 
+
                     <div className="-mr-2 flex md:hidden items-center gap-3">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-400 hover:text-white p-2">
+                        <LanguageDropdown  />
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-400 hover:text-white p-2 cursor-pointer">
                             {isMenuOpen ? <X /> : <Menu />}
                         </button>
                     </div>

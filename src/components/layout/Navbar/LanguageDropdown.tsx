@@ -37,10 +37,10 @@ export const LanguageDropdown = () => {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-slate-300 px-3 py-2 rounded-lg transition-all border border-white/10"
+                className="flex items-center ml-8 gap-3 bg-white/5 hover:bg-white/10 text-slate-300 px-3 py-2 rounded-lg transition-all border border-white/10"
             >
                 <span className="text-lg leading-none">{t.flag}</span>
-                <span className="text-xs font-bold uppercase hidden sm:inline-block">{lang}</span>
+                <span className="text-xs font-bold uppercase">{lang}</span>
                 <ChevronDown
                     className={`transition-transform duration-300 cursor-pointer ${isOpen ? 'rotate-180' : ''}`}/>
             </button>
