@@ -1,73 +1,186 @@
-# React + TypeScript + Vite
+# Introduction
+1. Project
+2. Tech Stack
+    - Core
+    - Environment
+3. Project Structure
+    - Adopted Principles
+4. Web Desktop Screenshot
+5. Web Mobile Screenshot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 1. Project 💻
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a **High-Converting Landing Page** for a fictional application called **NeonMusic**, focused on music study.  
+The design follows a **Premium Dark** aesthetic, using neon colors (Cyan and Purple) and the **Glassmorphism** style (translucent glass effect).
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+This project uses modern technologies to ensure performance, scalability, and an excellent developer experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🚀 Core
+- ⚡ **Vite** `7.2.4` — Ultra-fast build tool and development server
+- ⚛️ **React** `19.2.5` — Library for building user interfaces
+- 🔷 **TypeScript** `5.9.3` — Static typing and code safety
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🧰 Environment
+- 🟢 **Node.js** `24.10.1` — JavaScript runtime environment
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 3. 📁 Project Structure
+~~~ 
+src/
+├── app/
+│   ├── App.tsx
+│   └── providers.tsx
+│
+├── assets/
+│   ├── icons/
+│   └── screenshots/
+│
+├── components/
+│   ├── ui/
+│   │   ├── FeatureCard.tsx
+│   │   ├── FaqItem.tsx
+│   │   ├── FooterLink.tsx
+│   │   └── SocialIcon.tsx
+│   │
+│   ├── layout/
+│   │   ├── Navbar/
+│   │   │   ├── Navbar.tsx
+│   │   │   └── LanguageDropdown.tsx
+│   │   └── Footer/
+│   │       └── Footer.tsx
+│
+├── features/
+│   ├── landing/
+│   │   ├── page/
+│   │   │   ├── LandingPage.tsx
+│   │   ├── sections/
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── FeaturesSection.tsx
+│   │   │   ├── TestimonialsSection.tsx
+│   │   │   ├── PricingSection.tsx
+│   │   │   └── FaqSection.tsx
+│   │   ├── i18n/
+│   │   │   ├── translations-landing.types.ts
+│   │   │   └── translations-landing.ts
+│   │   └── hooks/
+│   │       └── useAutoScroll.ts
+│
+├── i18n/
+│   ├── LanguageContext.tsx
+│   ├── translation-types.ts
+│   ├── translations.ts
+│   │
+│   └── useLanguage.ts
+│
+├── styles/
+│   └── globals.css
+│
+├── types/
+│   └── language.types.ts
+│
+├── utils/
+│   └── browserLanguage.ts
+│
+└── main.tsx
+~~~
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This structure follows a **feature-based** approach, focused on scalability, reuse, and a clear separation of responsibilities.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### **app/**
+Application initialization layer.
+- Responsible for bootstrapping React
+- Centralizes global providers (Context API, theme, i18n, etc.)
+- Does not contain business logic or feature-specific UI
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+### **assets/**
+Static project assets.
+- **icons/** → SVG icons used by components
+- **screenshots/** → Preview images (landing, features, dashboard)
+
+---
+
+### **components/**
+Reusable and domain-agnostic components.
+- **ui/** → Small UI-focused components (cards, items, icons, links)
+- **layout/** → Global application structure (Navbar, Footer) that does not know pages or features
+
+---
+
+### **features/**
+Pages and business rules isolated by domain.  
+Each feature represents a real part of the product.
+- **hooks/** → Feature-specific reusable hooks (effects, timers, scroll, interactions)
+- **i18n/** → Isolated internationalization, with texts shared only within the feature itself
+- **page/** → Feature page component, responsible for composing and orchestrating sections, without business logic or fine-grained layout concerns
+- **sections/** → Visual page sections; each section represents an independent UI block containing feature-specific UI, behavior, and content, making maintenance, reordering, and internal reuse easier
+
+---
+
+### **i18n/**
+Global application internationalization.
+- Manages language, context, and translations shared across features
+
+---
+
+### **styles/**
+Global application styles.
+- CSS reset, global variables, and base styles
+
+---
+
+### **types/**
+Shared types and contracts.
+- Type definitions reused across multiple layers of the project
+
+---
+
+### **utils/**
+Pure utility functions.
+- Reusable helpers with no React dependency
+
+---
+
+### **main.tsx**
+Application entry point.
+- Creates the React root
+- Renders the `App`
+- Imports global styles
+
+---
+
+### 🧠 Adopted Principles
+- Components do not know business rules
+- Features are isolated and independent
+- Hooks encapsulate behavior, not UI
+- Internationalization is modular and decoupled
+
+✅ **Scalable**
+
+New pages, languages, or features can be added without affecting the rest of the codebase.  
+Easy to evolve into a monorepo in the future.
+
+✅ **More readable code**
+
+Each file remains small, and it is always clear where to make changes when something breaks.
+
+---
+
+## 4. Web Desktop Screenshot
+<img src="src/assets/screenshots/screenshot-web.png" width="800"/>
+
+---
+
+## 5. Web Mobile Screenshot
+
+| <img src="src/assets/screenshots/hero-web-mobile.png" width="378"/> | <img src="src/assets/screenshots/features-web-mobile.png" /> |
+|----------------------------------------------|---------------------------------------|
+| <img src="src/assets/screenshots/testimonials-web-mobile.png" />    | <img src="src/assets/screenshots/pricing-web-mobile.png" />  |
