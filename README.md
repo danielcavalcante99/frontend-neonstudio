@@ -12,8 +12,10 @@
 
 ## 1. Project 💻
 
-This project is a **High-Converting Landing Page** for a fictional application called **NeonMusic**, focused on music study.  
+This project is a **High-Converting Landing Page** for a fictional application called **NeonStudio**, focused on music study.  
 The design follows a **Premium Dark** aesthetic, using neon colors (Cyan and Purple) and the **Glassmorphism** style (translucent glass effect).
+
+### 🔗 [Access the project](https://danielcavalcante99.github.io/frontend-neonstudio/)
 
 ---
 

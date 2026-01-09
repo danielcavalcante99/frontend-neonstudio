@@ -12,8 +12,11 @@
 
 ## 1. Projeto 💻
 
-Este projeto é uma Landing Page de Alta Conversão para um aplicativo fictício chamado NeonMusic, focado no estudo musical. 
+Este projeto é uma Landing Page de Alta Conversão para um aplicativo fictício chamado NeonStudio, focado no estudo musical. 
 O design segue uma estética Premium Dark, utilizando cores neon (Ciano e Roxo) e o estilo Glassmorphism (efeito de vidro translúcido).
+
+### 🔗 [Acesse o projeto no GitHub Pages](https://danielcavalcante99.github.io/frontend-neonstudio/)
+
 ---
 
 ## 2. 🛠️ Tech Stack
