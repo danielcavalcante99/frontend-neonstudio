@@ -19,7 +19,7 @@ export const Navbar = () => {
                             <Music className="text-white w-5 h-5" />
                         </div>
                         <span className="text-xl font-bold tracking-tight text-white">
-                                NEON<span className="text-cyan-400">MUSIC</span>
+                                NEON<span className="text-cyan-400">STUDIO</span>
                             </span>
                     </div>
 
